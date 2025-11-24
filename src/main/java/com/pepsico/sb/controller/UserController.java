@@ -1,7 +1,9 @@
 package com.pepsico.sb.controller;
 
+import com.pepsico.sb.entity.Nudge;
 import com.pepsico.sb.entity.User;
 import com.pepsico.sb.model.*;
+import com.pepsico.sb.repository.NudgeRepository;
 import com.pepsico.sb.repository.UserRepository;
 import com.pepsico.sb.service.AuthService;
 import com.pepsico.sb.service.OrderService;
@@ -29,6 +31,9 @@ public class UserController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private NudgeRepository nudgeRepository;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -100,6 +105,24 @@ public class UserController {
     public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest request) {
         OrderResponse resp = orderService.createOrder(request);
         return ResponseEntity.ok(resp);
+    }
+
+    @PostMapping("/nudge")
+    @Operation(summary = "Create a new Nudge", description = "Create a new nudge for a user")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Nudge created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid Nudge details")
+    })
+    public ResponseEntity<String> createNudge(@RequestBody NudgeRequest request) {
+
+        Nudge nudge = new Nudge();
+
+        nudge.setNudgeType(request.getNudgeType());
+        nudge.setProductName(request.getProductName());
+        nudge.setUserEmail(request.getUserEmail());
+
+        nudgeRepository.save(nudge);
+        return ResponseEntity.ok("Nudge has been created");
     }
 
     @GetMapping("/{email}")

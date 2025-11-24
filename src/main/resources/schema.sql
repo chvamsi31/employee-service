@@ -18,3 +18,11 @@ CREATE TABLE IF NOT EXISTS orders (
   status VARCHAR(50) NOT NULL,
   orderdate VARCHAR(20) NOT NULL
 );
+
+-- create table (optional if Hibernate creates schema)
+CREATE TABLE IF NOT EXISTS nudge (
+  nudgeid BIGINT AUTO_INCREMENT PRIMARY KEY,
+  useremail VARCHAR(255) NOT NULL,
+  productname VARCHAR(255) NOT NULL,
+  nudgetype INT NOT NULL
+);

@@ -1,8 +1,8 @@
 
 -- sample users
-INSERT INTO users (email, password, firstname, lastname) VALUES ('alice@pepsico.com', 'password1', 'Alice', 'Hood');
-INSERT INTO users (email, password, firstname, lastname) VALUES ('bob@pepsico.com', 'password2', 'Bob', 'Peter');
-INSERT INTO users (email, password, firstname, lastname) VALUES ('carol@pepsico.com', 'password3', 'Carlo', 'Hek');
+INSERT INTO users (email, password, firstname, lastname) VALUES ('alice@pepsico.com', 'Test@123', 'Alice', 'Hood');
+INSERT INTO users (email, password, firstname, lastname) VALUES ('bob@pepsico.com', 'Test@123', 'Bob', 'Peter');
+INSERT INTO users (email, password, firstname, lastname) VALUES ('carol@pepsico.com', 'Test@123', 'Carlo', 'Hek');
 
 -- sample orders
 INSERT INTO orders (useremail, productname, quantity, price, totalprice, status, orderdate) VALUES ('alice@pepsico.com', 'Lay''s Classic Sea Salt Chips', 2, 4.99, 9.98, 'CREATED', '01-01-2025');

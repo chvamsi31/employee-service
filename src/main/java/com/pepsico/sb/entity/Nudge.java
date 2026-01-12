@@ -1,9 +1,15 @@
 package com.pepsico.sb.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "nudge")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Nudge {
 
     @Id
@@ -19,45 +25,4 @@ public class Nudge {
 
     @Column(name = "nudgetype")
     private String nudgeType;
-
-    public Long getNudgeId() {
-        return nudgeId;
-    }
-
-    public void setNudgeId(Long nudgeId) {
-        this.nudgeId = nudgeId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getNudgeType() {
-        return nudgeType;
-    }
-
-    public void setNudgeType(String nudgeType) {
-        this.nudgeType = nudgeType;
-    }
-
-    public Nudge(Long nudgeId, String productName, String userEmail, String nudgeType) {
-        this.nudgeId = nudgeId;
-        this.productName = productName;
-        this.userEmail = userEmail;
-        this.nudgeType = nudgeType;
-    }
-
-    public Nudge(){}
 }

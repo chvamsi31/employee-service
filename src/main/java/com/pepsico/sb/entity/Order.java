@@ -1,10 +1,15 @@
 package com.pepsico.sb.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orders")
+@Data
+@NoArgsConstructor
 public class Order {
 
     @Id
@@ -33,8 +38,6 @@ public class Order {
     @Column(name = "orderdate")
     private String orderDate;
 
-    public Order() {}
-
     public Order(String userEmail, String productName, Integer quantity, BigDecimal price, BigDecimal totalPrice, String status, String orderDate) {
         this.userEmail = userEmail;
         this.productName = productName;
@@ -44,29 +47,4 @@ public class Order {
         this.status = status;
         this.orderDate = orderDate;
     }
-
-    // getters & setters
-    public Long getOrderId() { return orderId; }
-    public void setOrderId(Long orderId) { this.orderId = orderId; }
-
-    public String getUserEmail() { return userEmail; }
-    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
-
-    public String getProductName() { return productName; }
-    public void setProductName(String productName) { this.productName = productName; }
-
-    public Integer getQuantity() { return quantity; }
-    public void setQuantity(Integer quantity) { this.quantity = quantity; }
-
-    public BigDecimal getPrice() { return price; }
-    public void setPrice(BigDecimal price) { this.price = price; }
-
-    public BigDecimal getTotalPrice() { return totalPrice; }
-    public void setTotalPrice(BigDecimal totalPrice) { this.totalPrice = totalPrice; }
-
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-
-    public String getOrderDate() { return orderDate; }
-    public void setOrderDate(String orderDate) { this.orderDate = orderDate; }
 }

@@ -3,6 +3,7 @@ package com.pepsico.sb.service;
 import com.pepsico.sb.entity.Order;
 import com.pepsico.sb.model.*;
 import com.pepsico.sb.repository.OrderRepository;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,12 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ *  OrderService class
+ *  which does order creation and other activities
+ */
 @Service
+@Data
 public class OrderService {
 
     private final OrderRepository repo;
